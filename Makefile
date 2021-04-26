@@ -47,6 +47,15 @@ generate:
 build:
 	mkdir -p bin/ && go build -ldflags "-X main.Version=$(VERSION)" -o ./bin/ ./...
 
+.PHONY: run
+# run
+run:
+	cd cmd/server && go run .
+
+.PHONY: wire
+wire:
+	cd cmd/server/ && wire .
+
 .PHONY: test
 # test
 test:

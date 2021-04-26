@@ -29,12 +29,16 @@ message Data {
   message Database {
     string driver = 1;
     string source = 2;
+    google.protobuf.Duration max_life_time = 3;
+    int32 max_open_conns = 4;
+    int32 max_idle_conns = 5;
   }
   message Redis {
     string network = 1;
     string addr = 2;
-    google.protobuf.Duration read_timeout = 3;
-    google.protobuf.Duration write_timeout = 4;
+    string password = 3;
+    google.protobuf.Duration read_timeout = 4;
+    google.protobuf.Duration write_timeout = 5;
   }
   Database database = 1;
   Redis redis = 2;
